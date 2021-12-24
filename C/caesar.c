@@ -4,8 +4,8 @@
 #include <unistd.h>
 
 int main(int argc, char **argv) {
-	char buffer[100];
-	char shifted_buffer[100];
+	char buffer[1000];
+	char shifted_buffer[1000];
 	size_t nbytes;
 	ssize_t bytes_read;
 	int fd;
