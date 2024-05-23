@@ -10,10 +10,11 @@ class PyList:
     def __repr__(self) -> str:
         return f"{(self).items}"
 
+    *The growth pattern is:  0, 4, 8, 16, 25, 35, 46, 58, 72, 88, ...
 
-    def list_resize(oldsize):
+    def new_allocated(oldsize):
         if oldsize < 8:
-            new_allocated = oldsize + 4
+            new_size = oldsize + 4
         else:
-            new_allocated = oldsize + 8 + (oldsize//8-1)
-        return new_allocated
+            new_size = oldsize + 8 + (oldsize//8-1)
+        return new_size
