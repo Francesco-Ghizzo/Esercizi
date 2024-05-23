@@ -2,6 +2,7 @@ class PyList:
 
     def __init__(self, size=0):
         self.items = [None]*size
+        self.numItems = 0
 
     def __iter__(self):
         for item in self.items:
@@ -13,6 +14,13 @@ class PyList:
 
     def inefficientAppend(self, item):
         self.items = self.items + [item]
+
+
+    def efficientAppend(self, item):
+        if self.numItems == len(self.items):
+            newlst = [None]*nnew_allocated(self.numItems)
+        for i in  self.items:
+            newlst[i] = self.items[i]
 
    # The growth pattern is:  0, 4, 8, 16, 25, 35, 46, 58, 72, 88, ...
 
