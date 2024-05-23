@@ -46,12 +46,12 @@ class PyList:
     def efficientAppend(self, item):
 
         if self.numItems == self.allocated:
-            newlst = [None]*new_allocated(self.numItems)
-            for i in  self.items:
+            self.allocated = new_allocated(self.allocated)
+            newlst = [None]*self.allocated
+            for i in range(self.numItems):
                 newlst[i] = self.items[i]
             
             self.items = newlst
 
         self.items[self.numItems] = item
-        self.allocated += 1
         self.numItems += 1
