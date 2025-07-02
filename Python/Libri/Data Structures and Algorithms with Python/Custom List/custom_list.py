@@ -24,3 +24,8 @@ class PyList:
 
     def __repr__(self) -> str:
         return f"{(self).items}"
+
+    # add this to implement append:
+
+    def append(self, item):
+        return self.items.append(item)
