@@ -44,7 +44,7 @@ class PyList:
     # add this to implement printing your object:
 
     def __repr__(self) -> str:
-        return f"{(self).items}"
+        return f"{(self).items[:numItems]}"
 
     
     # add this to implement append:
