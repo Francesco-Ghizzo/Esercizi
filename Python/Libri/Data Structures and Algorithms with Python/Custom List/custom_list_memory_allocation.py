@@ -59,6 +59,15 @@ class PyList:
 
     def append(self, item):
 
+        # The growth pattern is:  0, 4, 8, 16, 25, 35, 46, 58, 72, 88, ...
+
+        def new_allocated(oldsize):
+            if oldsize < 8:
+                new_size = oldsize + 4
+            else:
+                new_size = oldsize + 8 + (oldsize//8-1)
+            return new_size
+
         if self.numItems == self.allocated:
             self.allocated = new_allocated(self.allocated)
             newlst = [None]*self.allocated
