@@ -25,6 +25,14 @@ class PyList:
     def __repr__(self) -> str:
         return f"{(self).items}"
 
+    #add this to concatenate two custom lists:
+
+    def __add__(self, other):
+        result = PyList(numItems=self.numItems+other.numItems)
+        for i in other.items:
+            result.append(i)
+        return result
+
     # add this to implement append:
 
     def append(self, item):

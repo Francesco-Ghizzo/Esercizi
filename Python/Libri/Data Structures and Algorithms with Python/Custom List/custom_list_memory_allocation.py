@@ -44,13 +44,13 @@ class PyList:
     # add this to implement printing your object:
 
     def __repr__(self) -> str:
-        return f"{(self).items[:numItems]}"
+        return f"{(self).items[:self.numItems]}"
 
 
     #add this to concatenate two custom lists:
 
     def __add__(self, other):
-        result = self
+        result = PyList(numItems=self.numItems+other.numItems)
         for i in other.items:
             result.append(i)
         return result
@@ -58,6 +58,15 @@ class PyList:
     # add this to implement append:
 
     def append(self, item):
+
+        # The growth pattern is:  0, 4, 8, 16, 25, 35, 46, 58, 72, 88, ...
+
+        def new_allocated(oldsize):
+            if oldsize < 8:
+                new_size = oldsize + 4
+            else:
+                new_size = oldsize + 8 + (oldsize//8-1)
+            return new_size
 
         if self.numItems == self.allocated:
             self.allocated = new_allocated(self.allocated)
