@@ -28,7 +28,7 @@ class PyList:
     #add this to concatenate two custom lists:
 
     def __add__(self, other):
-        result = PyList(numItems=self.numItems+other.numItems)
+        result = self
         for i in other.items:
             result.append(i)
         return result
