@@ -1,3 +1,5 @@
+import copy
+
 class PyList:
 
     def __init__(self, numItems=0):
@@ -50,7 +52,7 @@ class PyList:
     #add this to concatenate two custom lists:
 
     def __add__(self, other):
-        result = PyList(numItems=self.numItems+other.numItems)
+        result = copy.copy(self)
         for i in other.items:
             result.append(i)
         return result
