@@ -5,16 +5,17 @@
 
 
 #include <iostream>
+#include <string> 
 
-int main() {
+int main(int argc, char* argv[]) {
 
-	float length;
-	float width;
-	float area;
-	float perimeter;
+	int length;
+	int width;
+	int area;
+	int perimeter;
 
-	length = 6.0;
-	width = 4.0;
+	length = std::stoi(argv[1]);
+	width = std::stoi(argv[2]);
 
 	area = length*width;
 	perimeter = 2*(length+width);
