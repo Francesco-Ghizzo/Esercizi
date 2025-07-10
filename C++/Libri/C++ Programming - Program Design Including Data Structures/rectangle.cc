@@ -19,6 +19,9 @@ int main() {
 	area = length*width;
 	perimeter = 2*(length+width);
 
+	std::cout << "Perimeter = " << perimeter << std::endl;
+	std::cout << "Area = " << area << std::endl; 
+	
 	return 0;
 
 }
