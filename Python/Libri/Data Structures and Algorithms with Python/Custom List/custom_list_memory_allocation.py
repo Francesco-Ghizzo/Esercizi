@@ -57,6 +57,7 @@ class PyList:
             result.append(i)
         return result
     
+
     # add this to implement append:
 
     def append(self, item):
@@ -79,4 +80,27 @@ class PyList:
             self.items = newlst
 
         self.items[self.numItems] = item
+        self.numItems += 1
+
+
+    # add this to implement insert:
+
+    def insert(self, i, e):
+
+        # The growth pattern is:  0, 4, 8, 16, 25, 35, 46, 58, 72, 88, ...
+
+        def new_allocated(oldsize):
+            if oldsize < 8:
+                new_size = oldsize + 4
+            else:
+                new_size = oldsize + 8 + (oldsize//8-1)
+            return new_size
+
+        if self.numItems == self.allocated:
+            self.allocated = new_allocated(self.allocated)
+
+        if i < self.numItems:
+            for j in range(self.numItems-1, i-1, -1):
+                self.items[j+1] = self.items[j]
+        self.items[i] = e
         self.numItems += 1
