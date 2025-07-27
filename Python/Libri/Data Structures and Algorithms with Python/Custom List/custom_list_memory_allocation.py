@@ -126,4 +126,10 @@ class PyList:
         for i in range(self.numItems):
             if self.items[i] != other.items[i]:
                 return False
-        return True    
+        return True  
+
+
+    # add this to implement length:
+
+    def __len__(self):
+        return self.numItems
