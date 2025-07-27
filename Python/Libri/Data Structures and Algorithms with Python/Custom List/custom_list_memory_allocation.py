@@ -113,4 +113,17 @@ class PyList:
     def __delitem__(self, index):       
         for i in range(index, self.numItems-1):
             self.items[i] = self.items[i+1]
-        self.numItems -= 1    
+        self.numItems -= 1   
+
+
+    # add this to implement equality:
+
+    def __eq__(self, other):
+        if type(self) != type(other):
+            return False
+        if self.numItems != other.numItems:
+            return False
+        for i in range(self.numItems):
+            if self.items[i] != other.items[i]:
+                return False
+        return True    
