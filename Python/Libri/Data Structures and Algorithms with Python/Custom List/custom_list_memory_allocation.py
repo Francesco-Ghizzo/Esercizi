@@ -102,5 +102,15 @@ class PyList:
         if i < self.numItems:
             for j in range(self.numItems-1, i-1, -1):
                 self.items[j+1] = self.items[j]
-        self.items[i] = e
-        self.numItems += 1
+            self.items[i] = e
+            self.numItems += 1
+        else:
+            self.append(e)
+
+
+    # add this to implement delete:
+    
+    def __delitem__(self, index):       
+        for i in range(index, self.numItems-1):
+            self.items[i] = self.items[i+1]
+        self.numItems -= 1    
