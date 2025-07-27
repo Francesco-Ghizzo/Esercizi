@@ -133,3 +133,12 @@ class PyList:
 
     def __len__(self):
         return self.numItems
+
+
+    # add this to implement membership:
+
+    def __contains__(self, item):
+        for i in range(self.numItems):
+            if self.item[i] == item:
+                return True
+        return False    
