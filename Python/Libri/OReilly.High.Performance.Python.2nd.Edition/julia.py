@@ -40,3 +40,16 @@ def calc_pue_python(desired_width, max_iterations):
     # This sum is expected for a 1000^2 grid with 300 iterations
     # It ensures that our code evolves exactly as we'd intended
     assert sum(output) == 33219980
+
+def calculate_z_serial_purepython(maxiter, zs, cs)
+    """Calculate output list using Julia update rule"""
+    output = [0] * len(zs)
+    for i in range(len(zs)):
+        n = 0
+        z = zs[i]
+        c = cs[i]
+        while abs(z) < 2 and n < maxiter:
+            z = z * z + c
+            n += 1
+        output[i] = n
+    return output
